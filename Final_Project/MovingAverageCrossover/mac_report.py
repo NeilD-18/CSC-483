@@ -35,40 +35,40 @@ def generate_pdf_report(backtest_metrics, smt_results, filename="MovingAverageCr
 
     # Title
     c.setFont("Helvetica-Bold", 16)
-    c.drawString(50, height - 50, "📊 Backtest and SMT Verification Report")
+    c.drawString(50, height - 50, "Backtest and SMT Verification Report")
 
     # Backtest Summary
     c.setFont("Helvetica-Bold", 14)
-    c.drawString(50, height - 80, "🔍 Backtest Summary:")
+    c.drawString(50, height - 80, "Backtest Summary:")
 
     c.setFont("Helvetica", 12)
     # Display metrics: max drawdown, stop-loss, total profit, win rate, and Sharpe ratio.
-    c.drawString(50, height - 100, f"📉 Max Drawdown: {backtest_metrics['max_drawdown']:.2%}")
-    c.drawString(50, height - 120, f"🚨 Stop-Loss Triggered: {backtest_metrics['stop_loss_triggered']}")
-    c.drawString(50, height - 140, f"💰 Total Profit: {backtest_metrics['total_profit']:.2f}")
-    c.drawString(50, height - 160, f"📈 Win Rate: {backtest_metrics['win_rate']*100:.1f}%")
-    c.drawString(50, height - 180, f"📊 Sharpe Ratio: {backtest_metrics['sharpe_ratio']:.2f}")
+    c.drawString(50, height - 100, f"Max Drawdown: {backtest_metrics['max_drawdown']:.2%}")
+    c.drawString(50, height - 120, f"Stop-Loss Triggered: {backtest_metrics['stop_loss_triggered']}")
+    c.drawString(50, height - 140, f"Total Profit: {backtest_metrics['total_profit']:.2f}")
+    c.drawString(50, height - 160, f"Win Rate: {backtest_metrics['win_rate']*100:.1f}%")
+    c.drawString(50, height - 180, f"Sharpe Ratio: {backtest_metrics['sharpe_ratio']:.2f}")
 
     # SMT Verification Results
     c.setFont("Helvetica-Bold", 14)
-    c.drawString(50, height - 210, "✅ SMT Verification Results:")
+    c.drawString(50, height - 210, "SMT Verification Results:")
 
     c.setFont("Helvetica", 12)
     verification_result = smt_results["SMT Verification"]
     failing_constraints = smt_results.get("Failing Constraints", [])
 
-    if verification_result == "✅ Passed":
+    if verification_result == "Passed":
         c.setFillColorRGB(0, 0.6, 0)  # Green
-        c.drawString(50, height - 230, "✅ SMT Verification: PASSED")
+        c.drawString(50, height - 230, "SMT Verification: PASSED")
         c.setFillColorRGB(0, 0, 0)
     else:
         c.setFillColorRGB(1, 0, 0)  # Red
-        c.drawString(50, height - 230, "❌ SMT Verification: FAILED")
+        c.drawString(50, height - 230, "SMT Verification: FAILED")
         c.setFillColorRGB(0, 0, 0)
 
         if failing_constraints:
             c.setFont("Helvetica", 12)
-            c.drawString(50, height - 250, "🚨 Failing Constraints:")
+            c.drawString(50, height - 250, "Failing Constraints:")
             y_offset = height - 270
             for constraint in failing_constraints:
                 if y_offset < 100:  # Create a new page if space is low

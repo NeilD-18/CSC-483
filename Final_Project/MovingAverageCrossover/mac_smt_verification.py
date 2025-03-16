@@ -72,22 +72,22 @@ def run_smt_verification(metrics):
     result = solver.check()
 
     if result == sat:
-        print("✅ SMT Verification Passed!")
-        return {"SMT Verification": "✅ Passed", "Failing Constraints": []}
+        print("SMT Verification Passed!")
+        return {"SMT Verification": "Passed", "Failing Constraints": []}
     
     else:
-        print("❌ SMT Verification Failed!\n🔍 Debugging Why Verification Failed:")
+        print("SMT Verification Failed!\n Debugging Why Verification Failed:")
         unsat_core = solver.unsat_core()
         
         if unsat_core:
-            print("🚨 Conflicting Constraints Found:")
+            print("Conflicting Constraints Found:")
             failing_constraints = [str(constraint) for constraint in unsat_core]
             for constraint in failing_constraints:
                 print(f"- {constraint}")
         else:
             print("⚠ No specific conflicting constraints found, but verification is UNSAT.")
 
-        return {"SMT Verification": "❌ Failed", "Failing Constraints": failing_constraints}
+        return {"SMT Verification": "Failed", "Failing Constraints": failing_constraints}
 
 if __name__ == "__main__":
     real_metrics = run_mac_backtest("AAPL")

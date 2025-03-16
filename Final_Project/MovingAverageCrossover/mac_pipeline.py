@@ -11,23 +11,24 @@ from test_mac_smt_verification import (
 )
 
 def run_pipeline():
-    print("🚀 Running Backtest...")
-    real_data_metrics = run_mac_backtest("AAPL")
-    fake_data_metrics = get_valid_metrics()
+    print("Running Backtest...")
+    #real_data_metrics = run_mac_backtest("AAPL")
+    #fake_data_metrics = get_valid_metrics()
+    fake_data_metrics = get_invalid_buy_signal_metrics()
     
     
-    print("🔍 Running SMT Verification...")
-    smt_results = run_smt_verification(real_data_metrics)
-    #smt_results = run_smt_verification(fake_data_metrics)
+    print("Running SMT Verification...")
+    #smt_results = run_smt_verification(real_data_metrics)
+    smt_results = run_smt_verification(fake_data_metrics)
     
   
 
     
-    print("📄 Generating PDF Report...")
-    generate_pdf_report(real_data_metrics, smt_results)
-    #generate_pdf_report(fake_data_metrics, smt_results)
+    print("Generating PDF Report...")
+    #generate_pdf_report(real_data_metrics, smt_results)
+    generate_pdf_report(fake_data_metrics, smt_results)
 
-    print("✅ Pipeline Completed Successfully!")
+    print("Pipeline Completed Successfully!")
 
 if __name__ == "__main__":
     run_pipeline()
