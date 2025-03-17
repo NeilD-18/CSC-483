@@ -12,21 +12,23 @@ from test_mac_smt_verification import (
 
 def run_pipeline():
     print("Running Backtest...")
-    #real_data_metrics = run_mac_backtest("AAPL")
-    #fake_data_metrics = get_valid_metrics()
-    fake_data_metrics = get_invalid_buy_signal_metrics()
-    
+    # Use real backtest data:
+    real_data_metrics = run_mac_backtest("AAPL")
+    # Alternatively, you can use synthetic metric. Can also use one of the imported metrics as well:
+    # fake_data_metrics = get_valid_metrics()
+    # fake_data_metrics = get_invalid_buy_signal_metrics()
     
     print("Running SMT Verification...")
-    #smt_results = run_smt_verification(real_data_metrics)
-    smt_results = run_smt_verification(fake_data_metrics)
-    
-  
-
+    # Verify real data metrics:
+    smt_results = run_smt_verification(real_data_metrics)
+    # Alternatively, verify the fake metrics:
+    # smt_results = run_smt_verification(fake_data_metrics)
     
     print("Generating PDF Report...")
-    #generate_pdf_report(real_data_metrics, smt_results)
-    generate_pdf_report(fake_data_metrics, smt_results)
+    # Generate report using real data:
+    generate_pdf_report(real_data_metrics, smt_results)
+    # Alternatively, generate report using the fake metrics:
+    # generate_pdf_report(fake_data_metrics, smt_results)
 
     print("Pipeline Completed Successfully!")
 

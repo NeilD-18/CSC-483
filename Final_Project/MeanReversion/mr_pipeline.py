@@ -7,14 +7,12 @@ from test_mr_smt_verification import (
     get_high_drawdown_metrics,
     get_invalid_buy_condition_metrics,
     get_invalid_stop_loss_metrics,
-    # Uncomment the next line if you have a "missing stop-loss" test for MR.
-    # get_missing_stop_loss_metrics,
 )
 
 def run_pipeline():
     print("Running Backtest...")
     real_data_metrics = run_mr_backtest("AAPL")
-    # Uncomment one of the following to test with synthetic metrics:
+    # Uncomment one of the following to test with synthetic metrics or use another of the imported metrics:
     # fake_data_metrics = get_valid_metrics()
     # fake_data_metrics = get_invalid_buy_condition_metrics()
     

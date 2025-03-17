@@ -15,24 +15,24 @@ from test_pt_smt_verification import (
 def run_pipeline():
     print("Running Backtest...")
     # Run backtest with real data for two stocks (e.g., AAPL and MSFT)
-    #real_data_metrics = run_pt_backtest("AAPL", "MSFT")
-    # Alternatively, to test with synthetic metrics, uncomment one of these:
+    real_data_metrics = run_pt_backtest("AAPL", "MSFT")
+    # Alternatively, to test with synthetic metrics, uncomment one of these or try one of the other imported synthetic metrics:
     # fake_data_metrics = get_valid_metrics()
     #fake_data_metrics = get_invalid_buy_condition_metrics()
     #fake_data_metrics = get_invalid_stop_loss_metrics()
-    fake_data_metrics = get_mixed_trades_metrics()
+    #fake_data_metrics = get_mixed_trades_metrics()
 
     print("Running SMT Verification...")
     # Use the real data metrics for SMT verification:
-    #smt_results = run_smt_verification(real_data_metrics)
+    smt_results = run_smt_verification(real_data_metrics)
     # Or, to test with synthetic metrics, uncomment the following line:
-    smt_results = run_smt_verification(fake_data_metrics)
+    #smt_results = run_smt_verification(fake_data_metrics)
 
     print("Generating PDF Report...")
     # Generate report based on the real data:
-    #generate_pdf_report(real_data_metrics, smt_results)
+    generate_pdf_report(real_data_metrics, smt_results)
     # Alternatively, to generate report for synthetic metrics, uncomment:
-    generate_pdf_report(fake_data_metrics, smt_results)
+    #generate_pdf_report(fake_data_metrics, smt_results)
 
     print("Pipeline Completed Successfully!")
 

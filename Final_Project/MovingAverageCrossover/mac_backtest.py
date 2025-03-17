@@ -149,6 +149,6 @@ def run_mac_backtest(stock_ticker):
     }
 
 if __name__ == "__main__":
-    metrics = run_mac_backtest()
+    metrics = run_mac_backtest("AAPL")
     print("🔍 Backtest Metrics:")
     print(metrics)
